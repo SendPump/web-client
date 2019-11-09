@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { RouteUrl } from "../../route";
+import { buildUrl } from "../../route";
 
 
 const workouts = [ 1, 2, 3 ];
@@ -23,7 +23,7 @@ export default () => (
   <div>
     <div className="columns is-centered" style={{padding: 15, margin: 0 }}>
       <div className="column is-6">
-        <Link to={RouteUrl.NewWorkout}>
+        <Link to={buildUrl({ route: "new-workout" })}>
           <button className="button is-success is-medium is-fullwidth">start new workout</button>
         </Link>
       </div>
