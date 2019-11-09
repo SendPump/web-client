@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Assessments from './pages/Assessments.component';
+import Exercise from './pages/Exercise.component';
 import Exercises from './pages/Exercises.container';
 import Progress from './pages/Progress.component';
 import Workouts from './pages/Workouts.component';
@@ -42,7 +43,7 @@ const pageView = (
     <Route path={RouteUrl.Workouts}><Workouts /></Route>
     <Route path={RouteUrl.Assessments}><Assessments /></Route>
     <Route path={RouteUrl.Progress}><Progress /></Route>
-    <Route path={RouteUrl.Exercise}>TODO</Route>
+    <Route path={RouteUrl.Exercise}><Exercise /></Route>
   </Switch>
 );
 

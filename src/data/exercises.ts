@@ -1,94 +1,93 @@
-export type WorkoutCategory = "cardio" | "strength" | "climbing";
-
-
-export type Amount = "time" | "reps" | "distance" | "boulder" | "rope";
-
-
 export interface Exercise {
   id: string;
   name: string;
-  exerciseCategory: string;
-  supportedAmounts: Amount[];
+  kinds: string[];
+  categories: ExerciseCategory[];
+  difficultyType: DifficultyType;
+  quantityType: QuantityType[];
 }
+
+
+export type ExerciseCategory = "cardio" | "strength" | "climbing" | "core";
+
+
+export type DifficultyType = "boulder" | "rope" | "level" | "weighted" | "easy-med-hard";
+
+
+export type QuantityType = "time" | "reps" | "distance";
 
 
 export const exercises: Exercise[] = [
   {
     id: "1",
-    name: "Biking",
-    exerciseCategory: "cardio",
-    supportedAmounts: [ "time", "distance" ]
+    name: "biking",
+    kinds: [ "quick-start", "intervals", "fat-loss" ],
+    categories: [ "cardio" ],
+    difficultyType: "level",
+    quantityType: [ "time", "distance" ]
   },
   {
     id: "2",
-    name: "Stair Master",
-    exerciseCategory: "cardio",
-    supportedAmounts: [ "time", "distance" ]
+    name: "stair master",
+    kinds: [ "quick-start", "intervals", "fat-loss" ],
+    categories: [ "cardio" ],
+    difficultyType: "level",
+    quantityType: [ "time", "distance" ],
   },
   {
     id: "3",
-    name: "Endless Rope",
-    exerciseCategory: "strength",
-    supportedAmounts: [ "time", "distance" ]
+    name: "endless rope",
+    kinds: [],
+    categories: [ "strength" ],
+    difficultyType: "easy-med-hard",
+    quantityType: [ "time", "distance" ]
   },
   {
     id: "4",
-    name: "Bouldering",
-    exerciseCategory: "climbing",
-    supportedAmounts: [ "boulder" ]
+    name: "bouldering",
+    kinds: [ "regular", "campus" ],
+    categories: [ "climbing" ],
+    difficultyType: "boulder",
+    quantityType: [ "reps" ]
   },
   {
     id: "5",
-    name: "Top Roping",
-    exerciseCategory: "climbing",
-    supportedAmounts: [ "rope" ]
+    name: "rope climbing",
+    kinds: [ "top rope", "lead" ],
+    categories: [ "climbing" ],
+    difficultyType: "rope",
+    quantityType: [ "reps" ]
   },
   {
     id: "6",
-    name: "Leading",
-    exerciseCategory: "climbing",
-    supportedAmounts: [ "rope" ]
+    name: "pull-up",
+    kinds: [ "regular", "wide", "one-handed" ],
+    categories: [ "strength" ],
+    difficultyType: "weighted",
+    quantityType: [ "reps" ]
   },
   {
     id: "7",
-    name: "Pullup",
-    exerciseCategory: "strength",
-    supportedAmounts: [ "reps" ]
+    name: "chin-up",
+    kinds: [ "regular", "wide", "one-handed" ],
+    categories: [ "strength" ],
+    difficultyType: "weighted",
+    quantityType: [ "reps" ]
   },
   {
     id: "8",
-    name: "Wide Pullup",
-    exerciseCategory: "strength",
-    supportedAmounts: [ "reps" ]
+    name: "muscle-up",
+    kinds: [],
+    categories: [ "strength" ],
+    difficultyType: "weighted",
+    quantityType: [ "reps" ]
   },
   {
     id: "9",
-    name: "Pushup",
-    exerciseCategory: "strength",
-    supportedAmounts: [ "reps" ]
-  },
-  {
-    id: "10",
-    name: "Wide Pushup",
-    exerciseCategory: "strength",
-    supportedAmounts: [ "reps" ]
-  },
-  {
-    id: "11",
-    name: "Triangle Pushup",
-    exerciseCategory: "strength",
-    supportedAmounts: [ "reps" ]
-  },
-  {
-    id: "12",
-    name: "Military Pushup",
-    exerciseCategory: "strength",
-    supportedAmounts: [ "reps" ]
-  },
-  {
-    id: "13",
-    name: "Dips",
-    exerciseCategory: "strength",
-    supportedAmounts: [ "reps" ]
+    name: "dips",
+    kinds: [],
+    categories: [ "strength" ],
+    difficultyType: "weighted",
+    quantityType: [ "reps" ]
   }
 ];
