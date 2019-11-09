@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import { urlTemplate } from "../route";
-import Library from './pages/Library.container';
-import Home from './pages/Home.component';
-import NewWorkout from "./pages/NewWorkout.component";
-import Progress from './pages/Progress.component';
+import Library from './pages/library';
+import Home from './pages/home';
+import NewWorkout from "./pages/new-workout";
+import Progress from './pages/progress';
 
 
 const navView = (
