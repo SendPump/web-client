@@ -1,18 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import Assessments from './pages/Assessments.component';
-import Exercise from './pages/Exercise.component';
-import Exercises from './pages/Exercises.container';
+import Library from './pages/Library.container';
+import Home from './pages/Home.component';
 import Progress from './pages/Progress.component';
-import Workouts from './pages/Workouts.component';
 
 
 enum RouteUrl {
-  Exercises = "/exercises",
-  Exercise = "/exercise/:id",
-  Workouts = "/workouts",
-  Assessments = "/assessments",
+  Home = "/",
+  Library = "/library",
   Progress = "/progress"
 };
 
@@ -20,14 +16,11 @@ enum RouteUrl {
 const navView = (
   <nav className="navbar is-spaced is-dark">
     <div className="navbar-brand">
-      <Link to={RouteUrl.Exercises} className="navbar-item">
-        Exercises
+      <Link to={RouteUrl.Home} className="navbar-item">
+        Home
       </Link>
-      <Link to={RouteUrl.Workouts} className="navbar-item">
-        Workouts
-      </Link>
-      <Link to={RouteUrl.Assessments} className="navbar-item">
-        Assessments
+      <Link to={RouteUrl.Library} className="navbar-item">
+        Library
       </Link>
       <Link to={RouteUrl.Progress} className="navbar-item">
         Progress
@@ -39,11 +32,9 @@ const navView = (
 
 const pageView = (
   <Switch>
-    <Route path={RouteUrl.Exercises}><Exercises /></Route>
-    <Route path={RouteUrl.Workouts}><Workouts /></Route>
-    <Route path={RouteUrl.Assessments}><Assessments /></Route>
-    <Route path={RouteUrl.Progress}><Progress /></Route>
-    <Route path={RouteUrl.Exercise}><Exercise /></Route>
+    <Route exact path={RouteUrl.Home}><Home /></Route>
+    <Route exact path={RouteUrl.Library}><Library /></Route>
+    <Route exact path={RouteUrl.Progress}><Progress /></Route>
   </Switch>
 );
 

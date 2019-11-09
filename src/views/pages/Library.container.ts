@@ -2,7 +2,7 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
 import { exercises } from "../../data/exercises";
-import ExercisesComponent from './Exercises.component';
+import LibraryComponent from './Library.component';
 import { StoreState } from '../../store/';
 import { createActionUpdateExerciseSearchInput } from '../../store/core';
 import Fuse from "fuse.js";
@@ -25,4 +25,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ExercisesComponent);
+)(LibraryComponent);
