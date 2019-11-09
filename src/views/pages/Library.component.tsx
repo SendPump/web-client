@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { Exercise } from "../../data/exercises";
+import { Exercise } from "../../exercise";
 import { onInputString } from "../../form";
 
 

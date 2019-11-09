@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
-import { exercises } from "../../data/exercises";
+import { exercises } from "../../constants/exercises";
 import LibraryComponent from './Library.component';
 import { StoreState } from '../../store/';
 import { createActionUpdateExerciseSearchInput } from '../../store/core';
