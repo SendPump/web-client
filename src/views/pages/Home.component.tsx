@@ -1,8 +1,38 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+import { RouteUrl } from "../../route";
+
+
+const workouts = [ 1, 2, 3 ];
+
+
+const renderWorkoutTile = () => (
+  [ <div className="column is-one-quarter is-hidden-mobile"></div>,
+    <div className="column is-half">
+      <div className="box">
+        Workout Info
+      </div>
+    </div>
+  , <div className="column is-one-quarter is-hidden-mobile"></div>
+  ]
+);
 
 
 export default () => (
-  <section className="section is-large has-text-centered">
-    <h1 className="title is-3">Home Page Coming Soon</h1>
-  </section>
+  <div>
+    <div className="columns is-centered" style={{padding: 15, margin: 0 }}>
+      <div className="column is-6">
+        <Link to={RouteUrl.NewWorkout}>
+          <button className="button is-success is-medium is-fullwidth">start new workout</button>
+        </Link>
+      </div>
+    </div>
+    <section className="section has-text-centered" style={{paddingTop: "0"}}>
+      <h1 className="title is-4" style={{textDecoration: "underline" }}>Recent Workouts</h1>
+      <div className="columns is-centered is-multiline">
+        {workouts.map(renderWorkoutTile)}
+      </div>
+    </section>
+  </div>
 );

@@ -1,16 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
+import { RouteUrl } from "../route";
 import Library from './pages/Library.container';
 import Home from './pages/Home.component';
+import NewWorkout from "./pages/NewWorkout.component";
 import Progress from './pages/Progress.component';
-
-
-enum RouteUrl {
-  Home = "/",
-  Library = "/library",
-  Progress = "/progress"
-};
 
 
 const navView = (
@@ -34,6 +29,7 @@ const pageView = (
   <Switch>
     <Route exact path={RouteUrl.Home}><Home /></Route>
     <Route exact path={RouteUrl.Library}><Library /></Route>
+    <Route exact path={RouteUrl.NewWorkout}><NewWorkout /></Route>
     <Route exact path={RouteUrl.Progress}><Progress /></Route>
   </Switch>
 );
