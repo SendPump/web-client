@@ -1,17 +1,13 @@
-import Fuse from "fuse.js";
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import { Exercise } from "../../exercise";
+import { Exercise, searchExercises, sortExercises } from "../../exercise";
 import { exercises } from "../../constants/exercises";
 import { onInputString } from "../../form";
 import { StoreState } from '../../store/';
 import { createActionUpdateExerciseSearchInput } from '../../store/core';
-
-
-const fuse = new Fuse(exercises, { keys: [ "name", "exerciseCategory" ], threshold: 0.3 });
 
 
 const renderExerciseTile = (exercise: Exercise) => (
@@ -44,7 +40,7 @@ const renderLibraryPage = ({ exerciseSearchInput, onExerciseSearchInput, exercis
         </div>
       </div>
       <div className="columns is-multiline">
-        { exercises.sort((a, b) => a.name.localeCompare(b.name)).map(renderExerciseTile) }
+        { sortExercises(exercises).map(renderExerciseTile) }
       </div>
     </section>
   </div>
@@ -53,7 +49,7 @@ const renderLibraryPage = ({ exerciseSearchInput, onExerciseSearchInput, exercis
 
 const mapStateToProps = (storeState: StoreState) => ({
   exerciseSearchInput: storeState.exerciseSearchInput,
-  exercises: storeState.exerciseSearchInput.length === 0 ? exercises : fuse.search(storeState.exerciseSearchInput)
+  exercises: searchExercises(exercises, storeState.exerciseSearchInput)
 });
 
 
