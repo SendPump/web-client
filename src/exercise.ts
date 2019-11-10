@@ -27,7 +27,7 @@ export const searchExercises = (exercises: Exercise[], searchText: string): Exer
     return exercises;
   }
 
-  const fuse = new Fuse(exercises, { keys: [ "name", "exerciseCategory" ], threshold: 0.3 });
+  const fuse = new Fuse(exercises, { keys: [ "name", "categories" ], threshold: 0.3 });
 
   return  fuse.search(searchText);
 }

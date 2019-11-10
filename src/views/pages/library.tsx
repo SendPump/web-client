@@ -7,7 +7,7 @@ import { Exercise, searchExercises, sortExercises } from "../../exercise";
 import { exercises } from "../../constants/exercises";
 import { onInputString } from "../../form";
 import { StoreState } from '../../store/';
-import { createActionUpdateExerciseSearchInput } from '../../store/core';
+import { Action } from "../../store/core";
 
 
 const renderExerciseTile = (exercise: Exercise) => (
@@ -53,8 +53,8 @@ const mapStateToProps = (storeState: StoreState) => ({
 });
 
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  onExerciseSearchInput: (newInput: string) => dispatch(createActionUpdateExerciseSearchInput(newInput))
+const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
+  onExerciseSearchInput: (newInput: string) => dispatch({ type: "UpdateExerciseSearchInput", newInput })
 });
 
 

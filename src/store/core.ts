@@ -1,37 +1,43 @@
 import { Reducer } from "redux";
+import * as EdView from "../views/exercise-dropdown";
 
 
 interface State {
   exerciseSearchInput: string;
+  newWorkoutDropdownState: EdView.State
 }
 
 
 export const initState: State = {
-  exerciseSearchInput: ""
+  exerciseSearchInput: "",
+  newWorkoutDropdownState: EdView.init
 };
 
 
-type Action = UpdateExerciseSearchInput;
+export type Action
+  = UpdateExerciseSearchInput
+  | UpdateNewWorkoutDropdownState;
 
 
 export interface UpdateExerciseSearchInput {
   type: "UpdateExerciseSearchInput";
-  data: string;
+  newInput: string;
 };
 
 
-export const createActionUpdateExerciseSearchInput = (data: string): UpdateExerciseSearchInput => {
-  return {
-    type: "UpdateExerciseSearchInput",
-    data
-  }
-};
+export interface UpdateNewWorkoutDropdownState {
+  type: "UpdateNewWorkoutDropdownState";
+  newState: EdView.State;
+}
 
 
 const reducer: Reducer<State, Action> = (state = initState, action) => {
   switch (action.type) {
     case "UpdateExerciseSearchInput":
-      return { ...state, exerciseSearchInput: action.data };
+      return { ...state, exerciseSearchInput: action.newInput };
+
+    case "UpdateNewWorkoutDropdownState":
+      return { ...state, newWorkoutDropdownState: action.newState };
 
     default:
       return state;
